@@ -2,15 +2,11 @@
     position: relative;
     height: 100px;
     width: 100%;
-    
-    
 }
 
-.mainNav h1 {
-    margin: auto;
-    line-height: 100px;
+.center {
     text-align: center;
-    color: #fff;
+    line-height: 100px;
 }
 
 .goBack {

@@ -1,31 +1,42 @@
 import { useState } from "react";
-import styles from "./Players.module.css"
+import styles from "./Players.module.css";
+import { PlayerInput } from "../../components/PlayerInput/PlayerInput";
 
 export function Players() {
     const [isDoublesSelected, setDoublesSelected] = useState(false);
-
+    const players = [
+        { id: 1, name: "Player 1" },
+        { id: 2, name: "Player 2" },
+        { id: 3, name: "Player 3" },
+        { id: 4, name: "Player 4" },
+    ];
     const handleCheckboxChange = () => {
-      setDoublesSelected(!isDoublesSelected);
+        setDoublesSelected(!isDoublesSelected);
     };
     return (
-        <div className={styles.container}> 
-            
+        <div className={styles.container}>
             <div className={styles.inputPlayers}>
-                <input type="checkbox" id="doubles"
-                checked={isDoublesSelected}
-                onChange={handleCheckboxChange}/>
+                <input
+                    type="checkbox"
+                    id="doubles"
+                    checked={isDoublesSelected}
+                    onChange={handleCheckboxChange}
+                />
                 <label htmlFor="doubles">Doubles</label>
-                <label className={styles.label} htmlFor="firstPlayer">Player 1</label>
-                <input type="text" id="firstPlayer"/>
-                <label className={styles.label} htmlFor="secondPlayer">Player 2</label>
-                <input type="text" id="secondPlayer"/>
-                {isDoublesSelected && <>
-                    <h3 className={styles.centerText}>VS</h3>
-                    <label className={styles.label} htmlFor="firstPlayer">Player 3</label>
-                    <input type="text" id="firstPlayer"/>
-                    <label className={styles.label} htmlFor="secondPlayer">Player 4</label>
-                    <input type="text" id="secondPlayer"/></>}
+                {players.slice(0, 2).map((player) => {
+                    return <PlayerInput key={player.id} player={player} />;
+                })}
+                {isDoublesSelected && (
+                    <>
+                        <h3 className={styles.centerText}>VS</h3>
+                        {players.slice(2, 4).map((player) => {
+                            return (
+                                <PlayerInput key={player.id} player={player} />
+                            );
+                        })}
+                    </>
+                )}
             </div>
         </div>
-    )
+    );
 }
