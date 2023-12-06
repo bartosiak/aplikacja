@@ -1,0 +1,30 @@
+.container {
+   margin: 15px;
+}
+
+input[type="text"]{
+    display: inline-block;
+    width: 100%;
+}
+
+.inputPlayers {
+    margin-top: 20px;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input{
+    margin-right: 5px;
+}
+
+.label {
+    width: 100%;
+    display: block;
+}
+
+.centerText {
+    text-align: center;
+    margin-top: 10px;
+}

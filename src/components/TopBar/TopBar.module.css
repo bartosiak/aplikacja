@@ -1,0 +1,25 @@
+.mainNav {
+    position: relative;
+    height: 100px;
+    width: 100%;
+    
+    
+}
+
+.mainNav h1 {
+    margin: auto;
+    line-height: 100px;
+    text-align: center;
+    color: #fff;
+}
+
+.goBack {
+    width: 30px;
+    height: 30px;
+    fill: #fff;
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+    
+} 
