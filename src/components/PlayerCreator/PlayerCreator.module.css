@@ -1,22 +1,4 @@
 .container {
-   margin: 15px;
-}
-
-
-.inputPlayers {
-    margin-top: 20px;
-}
-
-.checkbox{
-    margin-right: 5px;
-}
-
-.centerText {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.container {
     position: relative;
 }
   
@@ -33,6 +15,7 @@
 }
   
 .popup {
+    position: relative;
     background: #3248a0;
     width: 300px;
     height: 210px;
@@ -56,7 +39,7 @@
     font-weight: 500;
     font-style: normal;
     text-decoration: none;
-    padding: 14px 15px;
+    padding: 8px 12px;
     border: 0px solid #000;
     border-radius: 10px;
     display: inline-flex;
@@ -75,4 +58,9 @@
 .center {
     margin-top: 15px;
     text-align: center;
+}
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }

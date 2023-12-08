@@ -1,22 +1,4 @@
 .container {
-   margin: 15px;
-}
-
-
-.inputPlayers {
-    margin-top: 20px;
-}
-
-.checkbox{
-    margin-right: 5px;
-}
-
-.centerText {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.container {
     position: relative;
 }
   
@@ -33,9 +15,10 @@
 }
   
 .popup {
+    position: relative;
     background: #3248a0;
     width: 300px;
-    height: 210px;
+    height: 510px;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -45,6 +28,38 @@
     margin-top: 15px;
     width: 100%;
     height: 30px;
+}
+
+.list {
+    height: 380px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.list > li {
+    background: #233da4;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.list > li:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.list > .selected {
+    
+    background: #4c68db;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    
 }
 
 .btn{
@@ -72,6 +87,12 @@
 .btn:active{
     transform: scale(0.95);
 }
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
 .center {
     margin-top: 15px;
     text-align: center;

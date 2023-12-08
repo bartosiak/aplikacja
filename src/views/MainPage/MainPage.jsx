@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./MainPage.module.css";
-
 
 export function MainPage() {
     // const mockHistory = {
@@ -9,14 +8,16 @@ export function MainPage() {
     //     against: oponent
 
     // }
+    const location = useLocation();
+    const isHomePage = location.pathname === "/";
     return (
-    <div className={styles.center}>
-        <Link to={"/informations/players"}><button className={styles.btn}>Track match</button></Link>
-        {/* <Link className={styles.btn} to="/informations/players">Track match</Link> */}
-    </div>
-    )
-    
-    
-
-
+        <div className={styles.center}>
+            {isHomePage && (
+                <Link to={"/informations/players"}>
+                    <button className={styles.btn}>Track match</button>
+                </Link>
+            )}
+            {/* <Link className={styles.btn} to="/informations/players">Track match</Link> */}
+        </div>
+    );
 }
