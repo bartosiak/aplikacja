@@ -6,10 +6,8 @@ import { PlayerCreator } from "../../../components/PlayerCreator/PlayerCreator";
 
 export function Players() {
     const [isDoublesSelected, setDoublesSelected] = useState(false);
-
     const [isPlayerListVisible, setIsPlayerListVisible] = useState(false);
     const [isPlayerCreatorVisible, setIsPlayerCreatorVisible] = useState(false);
-
     const [selectedPlayer, setSelectedPlayer] = useState(null);
 
     const [inputValues, setInputValues] = useState({
@@ -28,8 +26,8 @@ export function Players() {
         setDoublesSelected(!isDoublesSelected);
     };
 
-    const handlePlayerClick = (playerId) => {
-        setSelectedPlayer(playerId);
+    const handleSelectPlayerFieldFocus = (fieldId) => {
+        setSelectedPlayer(fieldId);
         setIsPlayerListVisible(true);
     };
 
@@ -46,35 +44,15 @@ export function Players() {
     const handleListPopupSubmit = (selectedPlayerData) => {
         setInputValues((prevInputValues) => ({
             ...prevInputValues,
-            [selectedPlayer]: {
-                ...prevInputValues[selectedPlayer],
-                ...selectedPlayerData,
-                fullNameValue:
-                    (selectedPlayerData?.firstName || "") +
-                    " " +
-                    (selectedPlayerData?.lastName || ""),
-            },
+            [selectedPlayer]: selectedPlayerData,
         }));
     };
 
-    const handleAddPlayer = () => {
-        setInputValues((prevInputValues) => ({
-            ...prevInputValues,
-
-            [selectedPlayer]: {
-                firstName: prevInputValues[selectedPlayer]?.firstName || "",
-                lastName: prevInputValues[selectedPlayer]?.lastName || "",
-                fullNameValue:
-                    (prevInputValues[selectedPlayer]?.firstName || "") +
-                    " " +
-                    (prevInputValues[selectedPlayer]?.lastName || ""),
-            },
-        }));
-
+    const handleCreatePlayerHide = () => {
         setIsPlayerCreatorVisible(false);
     };
 
-    const handleInputChange = (playerId, field, value) => {
+    const handleAddPlayerInputChange = (playerId, field, value) => {
         setInputValues((prevInputValues) => ({
             ...prevInputValues,
             [playerId]: {
@@ -96,41 +74,33 @@ export function Players() {
                 />
                 <label htmlFor="doubles">Doubles</label>
 
-                <div onClick={() => handlePlayerClick(1)}>
-                    <PlayerInput
-                        playerId={1}
-                        inputValues={inputValues}
-                        onInputChange={handleInputChange}
-                        fullNameValue={inputValues[1].fullNameValue}
-                    />
-                </div>
+                <PlayerInput
+                    playerId={1}
+                    onInputFocus={() => handleSelectPlayerFieldFocus(1)}
+                    fullNameValue={`${inputValues[1].firstName} ${inputValues[1].lastName}`}
+                />
 
-                <div onClick={() => handlePlayerClick(2)}>
-                    <PlayerInput
-                        playerId={2}
-                        inputValues={inputValues}
-                        onInputChange={handleInputChange}
-                        fullNameValue={inputValues[2].fullNameValue}
-                    />
-                </div>
+                <PlayerInput
+                    playerId={2}
+                    onInputFocus={() => handleSelectPlayerFieldFocus(2)}
+                    fullNameValue={`${inputValues[2].firstName} ${inputValues[2].lastName}`}
+                />
 
                 {isDoublesSelected && (
                     <>
                         <h3 className={styles.centerText}>VS</h3>
-                        <div onClick={() => handlePlayerClick(3)}>
+                        <div onClick={() => handleSelectPlayerFieldFocus(3)}>
                             <PlayerInput
                                 playerId={3}
                                 inputValues={inputValues}
-                                onInputChange={handleInputChange}
                                 fullNameValue={inputValues[3].fullNameValue}
                             />
                         </div>
 
-                        <div onClick={() => handlePlayerClick(4)}>
+                        <div onClick={() => handleSelectPlayerFieldFocus(4)}>
                             <PlayerInput
                                 playerId={4}
                                 inputValues={inputValues}
-                                onInputChange={handleInputChange}
                                 fullNameValue={inputValues[4].fullNameValue}
                             />
                         </div>
@@ -149,8 +119,8 @@ export function Players() {
                 <PlayerCreator
                     selectedPlayer={selectedPlayer}
                     inputValues={inputValues}
-                    handleInputChange={handleInputChange}
-                    handlePopupSubmit={handleAddPlayer}
+                    handleInputChange={handleAddPlayerInputChange}
+                    handlePopupSubmit={handleCreatePlayerHide}
                     handleClosePopup={handleClosePopup}
                 />
             )}
