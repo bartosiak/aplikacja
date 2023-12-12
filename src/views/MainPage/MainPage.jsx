@@ -13,7 +13,7 @@ export function MainPage() {
     return (
         <div className={styles.center}>
             {isHomePage && (
-                <Link to={"/informations/players"}>
+                <Link to={"/information/players"}>
                     <button className={styles.btn}>Track match</button>
                 </Link>
             )}

@@ -1,0 +1,25 @@
+.scoreBoard {
+    display: grid;
+    grid-template-columns: 55% 15% 15% 15%;    
+    align-items: center;
+    justify-content: center;
+    margin: 0 20px;
+    background: linear-gradient(89deg, rgb(21, 74, 189) 0.1%, rgb(26, 138, 211) 51.5%, rgb(29, 144, 207) 100.2%);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    
+    
+}
+
+.item {
+    display: flex;
+    border: 2px solid #272626;
+    
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.scoreBoard .item:nth-child(1),
+.scoreBoard .item:nth-child(5) {
+    justify-content: start;
+}

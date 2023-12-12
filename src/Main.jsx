@@ -4,10 +4,11 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { MainPage } from "./views/MainPage/MainPage";
 import { Layout } from "./components/Layout/Layout";
-import { Informations } from "./components/Informations/Informations";
-import { Players } from "./views/Players/Players";
-import { Rules } from "./views/Rules/Rules";
-import { Surface } from "./views/Surface/Surface";
+import { Information } from "./views/Information/Information";
+import { Players } from "./views/Information/Players/Players";
+import { Rules } from "./views/Information/Rules/Rules";
+import { Surface } from "./views/Information/Surface/Surface";
+import { TrackMatch } from "./views/TrackMatch/TrackMatch";
 
 const router = createBrowserRouter([
     {
@@ -19,26 +20,34 @@ const router = createBrowserRouter([
         ),
     },
     {
-        path: "/informations",
+        path: "/information",
         element: (
             <Layout>
-                <Informations />
+                <Information />
             </Layout>
         ),
         children: [
             {
-                path: "/informations/players",
+                path: "/information/players",
                 element: <Players />,
             },
             {
-                path: "/informations/rules",
+                path: "/information/rules",
                 element: <Rules />,
             },
             {
-                path: "/informations/surface",
+                path: "/information/surface",
                 element: <Surface />,
             },
         ],
+    },
+    {
+        path: "/track-match",
+        element: (
+            <Layout>
+                <TrackMatch />
+            </Layout>
+        ),
     },
 ]);
 

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styles from "./Players.module.css";
-import { PlayerInput } from "../../components/PlayerInput/PlayerInput";
-import { PlayerList } from "../../components/PlayerList/PlayerList";
-import { PlayerCreator } from "../../components/PlayerCreator/PlayerCreator";
+import { PlayerInput } from "../../../components/PlayerInput/PlayerInput";
+import { PlayerList } from "../../../components/PlayerList/PlayerList";
+import { PlayerCreator } from "../../../components/PlayerCreator/PlayerCreator";
 
 export function Players() {
     const [isDoublesSelected, setDoublesSelected] = useState(false);
