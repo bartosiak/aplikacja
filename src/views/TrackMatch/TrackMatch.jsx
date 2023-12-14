@@ -4,35 +4,33 @@ import { useState } from "react";
 
 export function TrackMatch() {
     const [score, setScore] = useState({ player1: 0, player2: 0 });
+    const [scoreGems, setScoreGems] = useState({ player1: 0, player2: 0 });
     const [server, setServer] = useState("player1");
     const [advantage, setAdvantage] = useState(null);
 
     const scoreLabels = ["0", "15", "30", "40", "Ad", "gem"];
 
-    const handleScore = (player) => {
-        const newScore = { ...score };
-        newScore[player]++;
+    // const dataToSave = { key: "value" };
+    // localStorage.setItem("myData", JSON.stringify(dataToSave));
 
+    const handleScore = (player) => {
+        const newScore = { ...score, [player]: score[player] + 1 };
+        const opositPlayer = player === "player1" ? "player2" : "player1";
+        const checkServer = server === "player1" ? "player2" : "player1";
         if (
             // Check if Player won the game
             newScore[player] > 3 &&
-            newScore[player === "player1" ? "player2" : "player1"] < 2
+            newScore[opositPlayer] < 3
         ) {
             // Player won the game
-            newScore[player] = 0;
-            newScore[player === "player1" ? "player2" : "player1"] = 0;
-            setServer(server === "player1" ? "player2" : "player1");
-        } else if (
-            newScore[player] === 4 &&
-            newScore[player === "player1" ? "player2" : "player1"] === 3
-        ) {
+            newScore["player1"] = 0;
+            newScore["player2"] = 0;
+            handleScoreGems(player);
+            setServer(checkServer);
+        } else if (newScore[player] === 4 && newScore[opositPlayer] === 3) {
             // Advantage
             setAdvantage(player);
-            console.log("advantage");
-        } else if (
-            newScore[player] === 4 &&
-            newScore[player === "player1" ? "player2" : "player1"] === 4
-        ) {
+        } else if (newScore[player] === 4 && newScore[opositPlayer] === 4) {
             // Check another way of assigning points
             newScore["player1"] = 3;
             newScore["player2"] = 3;
@@ -41,8 +39,8 @@ export function TrackMatch() {
         } else if (advantage !== null && advantage === player) {
             // Player won a game at a later time implementation of adding games
             newScore[player] = 0;
-            newScore[player === "player1" ? "player2" : "player1"] = 0;
-            setServer(server === "player1" ? "player2" : "player1");
+            newScore[opositPlayer] = 0;
+            setServer(checkServer);
             setAdvantage(null);
             console.log("gem");
         }
@@ -61,13 +59,26 @@ export function TrackMatch() {
             setScore(newScore);
         }
     };
-    const player1Points = `${scoreLabels[score.player1]}`;
-    const player2Points = `${scoreLabels[score.player2]}`;
+
+    const handleScoreGems = (player) => {
+        const newScoreGems = {
+            ...scoreGems,
+            [player]: scoreGems[player] + 1,
+        };
+
+        if (newScoreGems[player] < 7) {
+            setScoreGems(newScoreGems);
+        }
+    };
+    console.log("Player 1 Gems: ", scoreGems.player1);
+    console.log("Player 2 Gems: ", scoreGems.player2);
     return (
         <>
             <ScoreBoard
-                player1Points={player1Points}
-                player2Points={player2Points}
+                player1Points={scoreLabels[score.player1]}
+                player2Points={scoreLabels[score.player2]}
+                player1Gems={scoreGems.player1}
+                player2Gems={scoreGems.player2}
             />
             <div className={styles.container}>
                 <div className={styles.center}>

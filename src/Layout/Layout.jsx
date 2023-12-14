@@ -1,5 +1,5 @@
-import { TopBar } from "../TopBar/TopBar";
-import { MainContent } from "../MainContent/MainContent";
+import { TopBar } from "../components/TopBar/TopBar";
+import { MainContent } from "../components/MainContent/MainContent";
 
 export function Layout({ children }) {
     return (

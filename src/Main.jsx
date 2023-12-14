@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { MainPage } from "./views/MainPage/MainPage";
-import { Layout } from "./components/Layout/Layout";
+import { Layout } from "./Layout/Layout";
 import { Information } from "./views/Information/Information";
 import { Players } from "./views/Information/Players/Players";
 import { Rules } from "./views/Information/Rules/Rules";
