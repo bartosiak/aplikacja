@@ -1,24 +1,18 @@
 import styles from "./ScoreBoard.module.css";
 
-export function ScoreBoard({
-    player1Points,
-    player2Points,
-    player1Gems,
-    player2Gems,
-}) {
-    console.log("Player 1 Gems: ", typeof player1Gems);
-    console.log("Player 2 Gems: ", typeof player2Gems);
+export function ScoreBoard({ player1Points, player2Points, scoreGems }) {
+
     return (
         <>
             <div className={styles.scoreBoard}>
                 <div className={styles.item}>Player 1</div>
-                <div className={styles.item}>{player1Gems}</div>
-                <div className={styles.item}>0</div>
-                <div className={styles.item}>0</div>
+                <div className={styles.item}>{scoreGems[0]["player1"]}</div>
+                <div className={styles.item}>{scoreGems[1]["player1"]}</div>
+                <div className={styles.item}>{scoreGems[2]["player1"]}</div>
                 <div className={styles.item}>Player 2</div>
-                <div className={styles.item}>{player2Gems}</div>
-                <div className={styles.item}>0</div>
-                <div className={styles.item}>0</div>
+                <div className={styles.item}>{scoreGems[0]["player2"]}</div>
+                <div className={styles.item}>{scoreGems[1]["player2"]}</div>
+                <div className={styles.item}>{scoreGems[2]["player2"]}</div>
             </div>
             <div className={styles.players}>
                 <h3 className={styles.player}>Player 1</h3>

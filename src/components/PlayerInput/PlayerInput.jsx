@@ -5,11 +5,7 @@ export function PlayerInput({
   fullNameValue,
   onInputFocus,
 }) {
-  // Lepiej zrobić tak
-  // const playerData = inputValues ?? {};
-  // const playerValues = playerData[playerId] ?? {};
-  // const firstNameValue = playerValues.firstName ?? "";
-
+  
   console.log(fullNameValue);
 
   return (

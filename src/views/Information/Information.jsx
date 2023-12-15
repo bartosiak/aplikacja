@@ -36,7 +36,7 @@ export function Information() {
             </ul>
             <Outlet />
             <Link to="/track-match">
-                <Button />
+                <Button>Track match</Button>
             </Link>
         </div>
     );

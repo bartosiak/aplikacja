@@ -1,9 +1,9 @@
 import styles from "./Button.module.css";
 
-export function Button() {
+export function Button({ children }) {
     return (
         <div className={styles.center}>
-            <button className={styles.btn}>Track match</button>
+            <button className={styles.btn}>{children}</button>
         </div>
     );
 }

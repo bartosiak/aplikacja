@@ -8,22 +8,21 @@ export function PlayerList({
   handleClosePopup,
 }) {
   const [selectedPlayerData, setSelectedPlayerData] = useState(null);
-  // W komponencie ListPopup
+
   const handleSelect = (playerData) => {
-    setSelectedPlayerData(playerData); // tutaj aktualizuję stan selectedPlayerData
+    setSelectedPlayerData(playerData);
   };
-  // W komponencie ListPopup
+  
   const handleConfirm = () => {
     onSubmit(selectedPlayerData);
-    handleClosePopup(); // tutaj wywołuję props onSubmit z argumentem selectedPlayerData
+    handleClosePopup();
   };
-  // W komponencie ListPopup
+  
   const handleAddNew = () => {
-    onAddNew(); // tutaj wywołuję props onAddNew bez argumentów
+    onAddNew(); 
   };
 
-  // W komponencie ListPopup
-  // W renderowaniu popupa z listą
+  
   return (
     <div className={styles.popupOverlay}>
       <div className={styles.popup}>
