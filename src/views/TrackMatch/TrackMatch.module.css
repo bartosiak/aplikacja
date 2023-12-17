@@ -3,8 +3,6 @@
 	color: #ffffff;
 }
 
-
-
 .player {
     font-size: 24px;
 }
@@ -63,4 +61,17 @@
 .btnUndo:active {
 	position:relative;
 	top:2px;
+}
+.btnMatchHistory {
+	background: linear-gradient(to top, rgba(21, 74, 189, 0.422) 0.1%, rgba(26, 137, 211, 0.457) 51.5%, rgba(29, 145, 207, 0.645) 100.2%);
+	display: flex;
+	color: #fff;
+	flex-wrap: wrap;
+	padding: 5px;
+	border: 1px solid rgba(21, 74, 189, 0.422);
+	border-radius: 10px;
+	position: absolute;
+	top: 35px;
+	right: 20px;
+	width: 65px;
 }
