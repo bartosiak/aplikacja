@@ -43,11 +43,10 @@ export function TrackMatch() {
 
     const checkSetWinConditions = (player, playerGames, opositPlayerGames) => {
         if (playerGames >= 6 && playerGames - opositPlayerGames >= 2) {
+            setSetNumber(setNumber + 1);
             setMatchData((prevMatchData) => {
                 const newMatchData = { ...prevMatchData };
                 newMatchData[player].setsWon += 1;
-
-                setSetNumber(setNumber + 1);
 
                 if (newMatchData[player].setsWon === 2) {
                     setIsMatchOverPopup(true);
@@ -99,14 +98,9 @@ export function TrackMatch() {
                     points: playerPoints,
                     scoreSets: prevMatchData[player].scoreSets.map(
                         (set, index) => {
-                            if (index === setNumber) {
-                                return {
-                                    ...set,
-                                    games: playerGames,
-                                };
-                            } else {
-                                return set;
-                            }
+                            return index === setNumber
+                                ? { ...set, games: playerGames }
+                                : set;
                         }
                     ),
                 },
