@@ -1,13 +1,17 @@
 .scoreBoard {
     display: grid;
-    grid-template-columns: 55% 15% 15% 15%;    
+    grid-template-columns: 55% 15% 15% 15%;
     align-items: center;
     justify-content: center;
     margin: 0 20px;
-    background: linear-gradient(to bottom, rgba(21, 74, 188, 0.422) 0.1%, rgba(26, 137, 211, 0.457) 51.5%, rgba(29, 145, 207, 0.645) 100.2%);
+    background: linear-gradient(
+        to bottom,
+        rgba(21, 74, 188, 0.422) 0.1%,
+        rgba(26, 137, 211, 0.457) 51.5%,
+        rgba(29, 145, 207, 0.645) 100.2%
+    );
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.205);
     font-size: 20px;
-    
 }
 
 .item {
@@ -26,10 +30,12 @@
 .players {
     display: flex;
     flex-direction: row;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
     margin-top: 40px;
+    text-align: center;
 }
 
 .points {
     font-size: 24px;
+    min-width: 68px;
 }

@@ -176,18 +176,18 @@ export function TrackMatch() {
                         +
                     </button>
                     <button
-                        className={styles.btn}
-                        onClick={() => handleScorePoints("player2")}
-                    >
-                        +
-                    </button>
-                </div>
-                <div className={styles.center}>
-                    <button
                         className={styles.btnUndo}
                         onClick={() => handleUndoScore("player1")}
                     >
                         Undo
+                    </button>
+                </div>
+                <div className={styles.center}>
+                    <button
+                        className={styles.btn}
+                        onClick={() => handleScorePoints("player2")}
+                    >
+                        +
                     </button>
                     <button
                         className={styles.btnUndo}
